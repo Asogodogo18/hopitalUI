@@ -1,3 +1,4 @@
+import { useFonts } from "expo-font";
 import { StyleSheet } from "react-native";
 import { COLORS, PADDING } from "../../outils/constant";
 
@@ -20,10 +21,12 @@ const dashboardStyles = StyleSheet.create({
     borderWidth: 2.5,
     borderColor: COLORS.main,
   },
-  userName: { fontSize: 15 },
+  userName: { fontSize: 18,color:COLORS.main,fontWeight: '600',
+   },
   title: {
     paddingVertical: PADDING.vertical,
     paddingHorizontal: PADDING.horizontal,
+ 
   },
   titleBold: {
     fontWeight: "bold",

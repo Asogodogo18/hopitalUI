@@ -4,6 +4,7 @@ import React from "react";
 import Styles from "../../componant/activityItem/style";
 import SymptomItem from "../../componant/symptomItem";
 import dashboardStyles from "./style";
+import { useFonts } from "expo-font";
 import { FakeDoctor } from "../../fakeData/fakeDoctor";
 import { fakeSymptom } from "../../fakeData/fakeSymptom";
 
@@ -17,11 +18,18 @@ import {
 } from "react-native";
 
 const Home = () => {
+  let {fontsLoaded}=useFonts({
+    'play':require('../../../assets/font/Ribeye-Regular.ttf')
+  })
+  
+  if(!fontsLoaded){
+    (<Text>ABBA</Text>)
+  }
   return (
     <ScrollView contentContainerStyle={{}}>
       {/* debut de header */}
       <View style={dashboardStyles.header}>
-        <Text style={dashboardStyles.userName}>CHEICK ABBA</Text>
+        <Text style={[dashboardStyles.userName,{fontFamily:"play"}]}>CHEICK ABBA SOGODOGO</Text>
         <Image
           source={require("../../../assets/12.jpg")}
           style={dashboardStyles.userImg}
@@ -42,7 +50,7 @@ const Home = () => {
       {/* fin de la liste des activite */}
       {/* liste des symptomes debut */}
       <View style={dashboardStyles.title}>
-        <Text style={dashboardStyles.titleBold}>Qui symptomes avez vous ?</Text>
+        <Text style={[dashboardStyles.titleBold]}>Qui symptomes avez vous ?</Text>
       </View>
       <FlatList
         horizontal={true}
